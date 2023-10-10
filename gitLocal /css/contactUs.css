@@ -1,0 +1,39 @@
+body{
+    background-image: url("../Assets/image2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.div1, .div2, .div7{
+    text-align: center;
+}
+
+.div4, .div5{
+    margin-left: 250px;
+}
+
+.div3{
+    background-color: antiquewhite;
+    border: 0.3px;
+    border-radius: 40px;
+    width: 900px;
+    margin-left: 200px;
+}
+
+.div7 > input{
+    width: 300px;
+    height: 45px;
+    background-color: rgb(251, 249, 199);
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.div7 > input{
+    padding-left: 70px;
+}
+
+.form{
+    padding: 30px;
+}
