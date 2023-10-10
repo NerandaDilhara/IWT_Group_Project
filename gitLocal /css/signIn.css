@@ -5,6 +5,13 @@
     font-family: 'Rubik', sans-serif;
 }
 
+body{
+    background-image: url("../Assets/image2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .div1{
     font-weight: bold;
     text-align: center;
@@ -53,6 +60,11 @@ input{
     height: 57px;
 }
 
+.login:hover{
+    background-color: rgb(99, 98, 98);
+    color: white;
+}
+
 .btn, .textBox{
     width: 500px;
     font-size: 22px;
@@ -62,6 +74,10 @@ input{
     border: 2px solid black;
     border-radius: 16px;
     height: 55px;
+}
+
+.btn:hover, .textBox:hover{
+    background-color: rgb(145, 183, 224);
 }
 
 .signIn{

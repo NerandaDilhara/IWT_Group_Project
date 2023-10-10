@@ -1,0 +1,78 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+body{
+    background-image: url("../Assets/image2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.div1{
+    width: 50%;
+    margin: auto;
+    border: 0.2px;
+    border-radius: 30px;
+    background-color: rgb(232, 221, 221);
+    text-align: center;
+}
+.signUp{
+    padding-top: 20px;
+}
+.div2{
+    display: flex;
+    width: auto;
+    height: auto;
+    justify-content: space-around;
+}
+.div2 > .div3, .div4{
+    flex-wrap: wrap;
+}
+.div2{
+    padding: 30px;
+}
+.div3, .div4{
+    padding: 10px;
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: rgb(190, 208, 227);
+}
+
+.div3:hover, .div4:hover{
+    background-color: rgb(143, 187, 234);
+}
+
+.a, .a2{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.a2{
+    color: blue;
+}
+
+hr{
+    width: 60%;
+}
+
+input{
+    text-align: center;
+    width: 70%;
+    height: 43px;
+    background-color: rgb(190, 208, 227);
+    border-radius: 10px;
+}
+label{
+    font-size: 18px;
+}
+.submit{
+    background-color: rgb(39, 128, 128);
+    color: white;
+}
+.submit:hover{
+    background-color: rgb(37, 79, 79);
+    color: azure;
+}
