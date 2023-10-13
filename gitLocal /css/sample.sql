@@ -224,3 +224,6 @@ VALUES
     (5, 'Type B', 5, 5);
 
 -- You can continue to insert data into the remaining tables following a similar pattern.
+
+
+
