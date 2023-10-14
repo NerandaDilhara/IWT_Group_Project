@@ -1,0 +1,57 @@
+
+
+body{
+    background-image: url("../Assets/image2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+main{
+    text-align: center;
+    padding: 40px;
+}
+
+.formBox2{
+    background-color: rgb(162, 164, 164);
+    width: 80%;
+    border: 0.3px solid black;
+    border-radius: 30px;
+    padding: 60px;
+    margin-left: 80px;
+}
+
+input{
+    background-color: rgb(243, 234, 200);
+    width: 60%;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+
+input::placeholder{
+    text-align: center;
+}
+
+textarea{
+    width: 60%;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(243, 234, 200);
+    text-align: center;
+
+}
+
+textarea::placeholder{
+    text-align: center;
+}

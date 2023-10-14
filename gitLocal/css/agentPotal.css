@@ -1,0 +1,127 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    background-image: url("../Assets/image2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.topic{
+    text-align: center;
+}
+
+.flex-container{
+    display: flex;
+}
+
+.flex-container .first, .second{
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 24px;
+    margin: 25px;
+    padding: 20px;
+}
+
+.flex-container .first{
+    background-color: rgb(248, 222, 255);
+}
+
+.flex-container .second{
+    background-color: azure;
+}
+
+.topic{
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.flex-container .first .agent{
+    flex-wrap: wrap;
+    margin: 30px;
+    padding: 10px;
+    background-color: darkgray;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.iamge{
+    width: 45px;
+    height: 45px;
+    margin: auto;
+}
+
+.profile-image{
+    width:30px;
+    height:30px;
+    margin: auto;
+}
+
+.agent{
+    display: flex;
+}
+
+.agent .iamge .description{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+}
+
+.agent .description{
+    margin-left: 20px;
+}
+
+.proImage{
+    width: 60px;
+    height: 60px;
+}
+
+.agentProfile{
+    display: flex;
+}
+
+.agentProfile .profile .description2{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+}
+
+.description2{
+    margin-left: 25px;
+}
+
+input{
+    background-color: rgb(148, 127, 127);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 16px;
+    color: white;
+    width: 100%;
+}
+
+input::placeholder{
+    color: white;
+    text-align: center;
+}
+
+.submit{
+    background-color: rgb(185, 185, 0);
+    color: black;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.subject{
+    height: 60px;
+}
+
+.message{
+    height: 400px;
+}
