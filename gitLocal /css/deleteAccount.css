@@ -1,0 +1,63 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    background-image: url("../Assets/image2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.flex-container{
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(232, 221, 221);
+    width: 70%;
+    border: 0.2px solid black;
+    border-radius: 20px;
+}
+
+.title{
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 20px;
+}
+
+input{
+    background-color: rgb(220, 252, 252);
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    border: 0.4px solid black;
+    border-radius: 8px;
+    width: 60%;
+    height: 40px;
+}
+
+input:hover{
+    background-color: rgb(166, 238, 238);
+}
+
+button{
+    background-color: rgb(242, 254, 254);
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+    text-align: center;
+    border: 0.4px solid black;
+    border-radius: 8px;
+    width: 60%;
+    height: 40px;
+}
+
+button:hover{
+    color: rgb(255, 2, 2);
+    background-color: rgb(187, 253, 253);
+}
+
+.deletePart{
+    padding: 20px;
+    margin-bottom: 40px;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>X Insurance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,400&family=Rubik&display=swap" rel="stylesheet">
+    <link type="image/x-icon" rel="icon" href="Assets/favicon.png">
+    
+  </head>
+  <body>
+    <!--This section represents the navigation bar of the website-->
+    <section class="nav-sec">
+      <div id="logo-container">
+        <a href="#" class="logo">X Insurance</a>
+      <nav id="nav-menu">
+        <ul class="nav-bar">
+          <li><a href="homePage.php">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="contactUs.html">Contact</a></li>
+          <li><a href="agentPotal.html">My Profile</a></li>
+        </ul>
+      </nav>
+      <div class="content-hero">
+        <h1 class="heading">Your Trustworthy<br>Life Insurance Partner</h1>
+        <a href="signIn.php" class="sign-in">Sign In</a>
+        <a href="signUp.php" class="sign-up">Sign Up</a>
+      </div>
+    </section>
+    <div class="about-us-sec">
+      <img src="Assets/image3.png" class="abt-image">
+      <div class="about-container">
+        <h1 class="About-Us header">About Us</h1>
+       <p class="about-para">Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Etiam molestie leo vitae
+        quam hendrerit feugiat ac a nulla. Sed
+        lectus turpis, pharetra non arcu congue,
+        tincidunt vulputate urna. Pellentesque
+        luctus sem pharetra tortor porttitor, sed
+        sodales felis auctor. Donec et magna
+        ultrices, finibus turpis quis, laoreet elit.
+        Praesent massa purus, convallis quis nulla
+        quis, posuere mollis leo. Praesent aliquam
+        laoreet</p>
+        <a href="#" class="learn-more">Learn More</a>
+      </div>
+    </div>
+    <!--who choose us section-->
+
+    <div class="heading2">
+      <h1>Why Choose Us</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Vestibulum et feugiat nibh. Mauris
+        venenatis ultricies convallis. Quisque odio
+        magna, convallis.</p>
+    </div>
+    <div class="reason-container">
+      <div class="container1">
+        <div>
+          <img src="Assets/reason1.gif">
+          <h3>Reason 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Ut ultricies</p>
+        </div>
+        <div>
+          <img src="Assets/reason2.gif">
+          <h3>Reason 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Ut ultricies</p>
+        </div>
+      </div>
+      <div class="container2">
+        <div>
+          <img src="/Assets/reason3.gif">
+          <h3>Reason 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Ut ultricies</p>
+        </div>
+        <div>
+          <img src="/Assets/reason4.gif">
+          <h3>Reason 4</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Ut ultricies</p>
+        </div>
+      </div>
+      <img src="/Assets/image4.jpg" class="reasonImg">
+    </div>
+    <div>
+      <h1>Packages</h1>
+      <div class="package-container">
+        <div class="package1">
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <section class="footer-top">
+       <div class="news-container">
+        <h3>Newsletter</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Proin nisi</p>
+        <input type="email" placeholder="Your Email">
+       </div>
+       <div class="contact-container">
+        <h3>Contact Us</h3>
+        <small>+94 77 117 3677</small><br>
+        <small>info@xinsurance.com</small><br>
+        <small>Queen Towers, Colombo</small><br>
+        <small>Sri Lanka</small>
+       </div>
+      </section>
+      <hr class="footer-breaker">
+      <div class="footer-bottom">
+        <a href="#" class="footer-logo">X Insurance</a>
+        <div class="footer-menu">
+          <a href="#">Terms of Services</a>
+          <a href="#">Privacy policy</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+  
+</html>
