@@ -1,14 +1,9 @@
 <?php
 
-    $server = "localhost";
-    $user = "root";
-    $password = "";
-    $database = "LifeInsuranceManagementSystem";
-
-    $conn = new mysqli($server, $user, $password, $database);
+    $conn = new mysqli("localhost", "root", "", "LifeInsuranceManagementSystem");
 
     if(!$conn){
-        die("Connection Failed!". $conn->connect_error);
+        echo "Connection Faild!".$conn->connect_error;
     }
 
 ?>

@@ -13,20 +13,27 @@
         $result1 = $conn->query($sql1);
 
         if($result1->num_rows > 0){
+            $state = 0;
             while($row = $result1->fetch_assoc()){
                 if($email == $row['email']){
                     if($pw == $cPw){
                         if($conn->query($sql2) === TRUE){
                             echo "<script>window.alert('Password Updated!');</script>";
+                            $state = 1;
+                            die("<script>window.location.href='signIn.php'</script>");
+                            break;
                         }
                     }else{
-                        echo "<script>window.alert('Password Error!');</script>";
+                        echo "<script>window.alert('Password Not Matching!');</script>";
                         die("<script>window.location.href='forgetPassword.php'</script>");
                     }
-                    die("<script>window.location.href='signIn.php'</script>");
+    
                 }else{
-                    die("<script>window.location.href='forgetPassword.php'</script>");
+                    $state = 0;
                 }
+            }
+            if($state == 0){
+                die("<script>window.location.href='forgetPassword.php'</script>");
             }
         }else{
             echo "0 results";

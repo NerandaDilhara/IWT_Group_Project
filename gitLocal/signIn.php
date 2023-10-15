@@ -7,11 +7,10 @@
         $password = $_POST['password'];
 
 
-        $sql = "SELECT email, password FROM user";
+        $sql = "SELECT email, password FROM user WHERE email='$signInEmail' AND password='$password'";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
-            $status = 0;
 
             while($row = $result->fetch_assoc()){
                 if($signInEmail == $row['email'] AND $password == $row['password']){
@@ -22,8 +21,6 @@
                     echo "<script>window.location.href = 'signIn.php'</script>";
                 }
             }
-        }else{
-            echo "0 results";
         }
 
     }

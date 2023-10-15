@@ -11,15 +11,20 @@
         $result = $conn->query($sql2);
 
         if($result->num_rows > 0){
+            $state = 1;
             while($row = $result->fetch_assoc()){
                 if($email == $row['email'] AND $password == $row['password']){
+                    echo "<script>alert('Account Deleted Successfully !');</script>";
                     $conn->query($sql1);
-                    echo "<script>alert('Acoount Deleted Successfully !');</script>";
+                    $state = 1;
                     die("<script>window.location.href='signUp.php'</script>");
                 }else{
-                    echo "<script>alert('Not matching email and password');</script>";
-                    echo "<script>window.location.href='deleteAccount.php'</script>";
+                    $state = 0;
                 }
+            }
+            if($state == 0){
+                echo "<script>alert('Not matching email and password');</script>";
+                echo "<script>window.location.href='deleteAccount.php'</script>";
             }
         }
     }

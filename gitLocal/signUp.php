@@ -13,20 +13,64 @@
     $pass1 = $_POST['pass1'];
     $pass2 = $_POST['pass2'];
 
-    if($pass1 == $pass2){
-      $sql = "INSERT INTO `user` (fullname, address, phone, gender, dob, email, username, password) VALUES ('$fullname', '$address', '$phone', '$gender', '$dob', '$email', '$username', '$pass1')";
+    // Function to validate a password
+    function validatePassword($password) {
+      
+        $minLength = 8;  
+        $uppercase = preg_match('/[A-Z]/', $password); 
+        $lowercase = preg_match('/[a-z]/', $password); 
+        $number = preg_match('/[0-9]/', $password);     
+        $specialChar = preg_match('/[^A-Za-z0-9]/', $password);  
 
-      if($conn->query($sql) == FALSE){
-        echo "Error " . $sql . "<br>" . $conn->error;
-      }else{
-        echo "<script>alert('Success!');</script>";
-        die("<script>window.location.href='signIn.php'</script>");
-      }
-    }else{
-      echo "<script>alert('Different password !');</script>";
-      die("<script>window.location.href='signUp.php'</script>");
+        // Check if the password meets all criteria
+        if (strlen($password) < $minLength) {
+            return "Small length";
+        } elseif (!$uppercase || !$lowercase || !$number || !$specialChar) {
+            return "not matchs characters";
+        }
+
+        return "Password is valid.";
     }
 
+    // Function to validate a phone number
+    function validatePhoneNumber($phoneNumber) {
+      // Remove any non-digit characters
+      $phoneNumber = preg_replace('/\D/', '', $phoneNumber);
+  
+      // Check if the phone number has the correct length
+      if (strlen($phoneNumber) != 10) {
+          return "Phone number must have 10 digits";
+      }
+      return "Phone number is valid";
+    }
+
+    $passwordStatus = validatePassword($pass1);
+    $phoneStatus = validatePhoneNumber($phone);
+    
+    if($passwordStatus == "Small length"){
+      echo "<script>alert('Password Should at least 8 characters')</script>";
+    }elseif($passwordStatus == "not matchs characters"){
+      echo "<script>alert('Not matches characters')</script>";
+    }elseif($phoneStatus == "Phone number must have 10 digits"){
+      echo "<script>alert('Phone number must have 10 digits')</script>";
+    }else{
+      if($pass1 == $pass2){
+      
+        $sql = "INSERT INTO `user` (fullname, address, phone, gender, dob, email, username, password) VALUES ('$fullname', '$address', '$phone', '$gender', '$dob', '$email', '$username', '$pass1')";
+  
+        if($conn->query($sql) == FALSE){
+          echo "Error " . $sql . "<br>" . $conn->error;
+        }else{
+          echo "<script>alert('Success!');</script>";
+          die("<script>window.location.href='signIn.php'</script>");
+        }
+      
+      }else{
+        echo "<script>alert('Different password !');</script>";
+        die("<script>window.location.href='signUp.php'</script>");
+      }  
+    }
+    
     $conn->close();
   }
 
