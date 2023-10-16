@@ -1,0 +1,32 @@
+main{
+    border-style: solid;
+    border-width: 20px;
+    border-color: rgba(37, 3, 57, 0.977);
+    background-color: rgb(228, 227, 217);
+    justify-content: center;
+    width: auto;
+    height: auto;
+
+}
+
+main h1{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-right: 100px;
+    margin-left: 80px;
+    color: rgb(25, 4, 67);
+    font-size: 150px;
+}
+
+main h3{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-right: 100px;
+    margin-left: 80px;
+    color: rgb(0, 0, 0);
+}
+main p{
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    align-items: center;
+}
