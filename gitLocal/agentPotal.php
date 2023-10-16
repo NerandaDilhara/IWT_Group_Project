@@ -176,7 +176,7 @@
           <a href="aboutUs.php">About Us</a>
           <a href="packages.php">Packages</a>
           <a href="contactUs.php">Contact</a>
-          <a href="agentPotal.php">My Profile</a>
+          <a href="myProfile.php">My Profile</a>
         </div>
 
     </header>

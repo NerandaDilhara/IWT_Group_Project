@@ -9,6 +9,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,400&family=Rubik&display=swap" rel="stylesheet">
     <link type="image/x-icon" rel="icon" href="Assets/favicon.png">
+
+    <style>
+      .agentDashBoard{
+        background-color: bisque;
+        color: black;
+        font-weight: bold;
+        font-size: 24px;
+        padding: 5px;
+        width: 380px;
+        height: 44px;
+        border-radius: 20px;
+      }
+    </style>
     
   </head>
   <body>
@@ -22,7 +35,7 @@
           <li><a href="aboutUs.php">About Us</a></li>
           <li><a href="packages.php">Packages</a></li>
           <li><a href="contactUs.php">Contact</a></li>
-          <li><a href="agentPotal.php">My Profile</a></li>
+          <li><a href="myProfile.php">My Profile</a></li>
         </ul>
       </nav>
       <div class="content-hero">
@@ -97,6 +110,12 @@
         </div>
       </div>
     </div>
+
+    <center>
+      <div>
+        <a href="agentPotal.php"><button type="button" class="agentDashBoard">Go to Agent DashBoard -></button></a>
+      </div>
+    </center>
 
     <footer>
       <section class="footer-top">
