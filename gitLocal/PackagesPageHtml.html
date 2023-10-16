@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/HomePageCSS.css">
+  <title>X Isurance</title>
+  
+
+</head>
+<body>
+ <header>
+  <section class="nav-sec">
+    <div id="logo-container">
+      <h1><a href="#" class="logo">X Insurance</a></h1>
+    <nav id="nav-menu">
+      <ul class="nav-bar">
+        <li><a href="HomePageHtml.html">Home</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="PackagesPageHtml.html">Packages</a></li>
+        <li><a href="contactUs.php">Contact</a></li>
+        <li><a href="myProfile.html">My Profile</a></li>
+      </ul>
+    </nav>
+    <h1 class="main-header">Packages</h1>
+    <div class="pkg-para">
+      <p class="package-description">X Insurance offers a diverse range of comprehensive insurance packages tailored to meet your specific needs. Whether it's safeguarding your home, securing your vehicle, or protecting your business, we provide reliable coverage with competitive rates. Trust X Insurance for peace of mind and personalized solutions in an unpredictable world.</p>
+    </div>
+  </section>
+ </header>
+
+
+
+ <main>
+  <div class="packageOne-container">
+    <div class="pkg1-image"></div>
+    <div class="pkg1Details">
+      <h3>Cooperative</h3>
+      <p> Join hands with our Cooperative Plan, fostering shared protection and community resilience. Together, we navigate uncertainties, ensuring collective security for a brighter future.
+      </p>
+      <a href="/PHP/PackageCrudPage.php" id="package-button" >Explore</a>
+    </div>
+  </div>
+<div id="packages"></div>
+
+
+
+
+  <div class="packageTwo-container">
+    <div class="pkg2Details">
+      <h3>Family</h3>
+      <p>Embrace peace of mind with our Family Plan, tailoring coverage to shield your loved ones. From health to home, we've got your family's well-being at heart.
+      </p>
+      <a href="/PHP/PackageCrudPage.php" id="package-button" >Explore</a>
+    </div>
+    <div class="pkg2-image"></div>
+  </div>
+  
+  <div class="packageThree-container">
+    <div class="pkg3-image"></div>
+    <div class="pkg3Details">
+      <h3>Retirement</h3>
+      <p>Secure your golden years with our Retirement Plan. We pave the way for a worry-free retirement, providing financial stability and protection for the journey ahead.
+      </p>
+      <a href="/PHP/PackageCrudPage.php" id="package-button" onclick="buttonSelect('button3')">Explore</a>
+    </div>
+  </div>
+
+
+  <div class="packageFour-container">
+    <div class="pkg4Details">
+      <h3>Abroad</h3>
+      <p>Explore the world confidently with our Abroad Plan. Wherever life takes you, we've got your back, offering comprehensive coverage for your international adventures and ensuring a worry-free journey.
+      </p>
+      <a href="/PHP/PackageCrudPage.php" id="PackageFourAnchor" onclick="buttonSelect('button4')">Explore</a>
+    </div>
+    <div class="pkg4-image"></div>
+  </div>
+
+
+
+  <div class="packageFive-container">
+    <div class="pkg5-image"></div>
+    <div class="pkg5Details">
+      <h3>Individual</h3>
+      <p>Tailored to your unique needs, our Individual Plan offers personalized solutions. From health to assets, choose the coverage that aligns with your individual lifestyle, providing security that's as unique as you are.
+      </p>
+      <a href="../src/PHP/PackageCrudPage.php" id="PackageFiveAnchor" onclick="buttonSelect('button5')" target="_self">Explore</a>
+    </div>
+  </div>
+  
+ </main>
+ 
+ <footer class="footer">
+  <div class="footer__addr">
+    <h1 class="footer__logo">X Insurance</h1>
+        
+    <h2>Contact</h2>
+    
+    <address>
+      Queen Towers Colombo 07 Java Street<br>
+          
+      <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+    </address>
+  </div>
+  
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Nav</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Home</a>
+        </li>
+
+        <li>
+          <a href="#">About</a>
+        </li>
+            
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Packages</h2>
+      
+      <ul class="nav__ul nav__ul--extra">
+        <li>
+          <a href="#">Cooperative</a>
+        </li>
+        
+        <li>
+          <a href="#">Family</a>
+        </li>
+        
+        <li>
+          <a href="#">Abroad</a>
+        </li>
+        
+        <li>
+          <a href="#">Retirement</a>
+        </li>
+        
+        <li>
+          <a href="#">Individual</a>
+        </li>
+        
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item">
+      <h2 class="nav__title">Legal</h2>
+      
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+        
+        <li>
+          <a href="#">Terms of Use</a>
+        </li>
+        
+        <li>
+          <a href="#">About Us</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  
+  <div class="legal">
+    <p> 2023 X Insurance. All rights reserved.</p>
+    
+    <div class="legal__links">
+      
+    </div>
+  </div>
+</footer>
+ <script src="./JavaScript/PackageCrud.js" ></script>
+
+ 
+ </body>
+</html>

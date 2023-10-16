@@ -187,7 +187,7 @@
 
               <div class="inputBox">
                 <span>Accepted Cards:</span> <br><br><br>
-                <img src="Assets/accepted-credit-cards-horizontal.png" width="200px" height="50px" alt="" required> <br><br><br>
+                <img src="./Assets/Assets:accepted-credit-cards-horizontal.png" width="200px" height="50px" alt="" required> <br><br><br>
               </div>
 
 

@@ -11,7 +11,7 @@
     <link type="image/x-icon" rel="icon" href="Assets/favicon.png">
 
     <style>
-      .agentDashBoard{
+      .agentDashBoard, .payment{
         background-color: bisque;
         color: black;
         font-weight: bold;
@@ -114,6 +114,12 @@
     <center>
       <div>
         <a href="agentPotal.php"><button type="button" class="agentDashBoard">Go to Agent DashBoard -></button></a>
+      </div>
+    </center>
+    <br>
+    <center>
+      <div>
+        <a href="paymentOption.php"><button type="button" class="payment">Go to Payment DashBoard -></button></a>
       </div>
     </center>
 
