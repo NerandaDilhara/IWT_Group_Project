@@ -3,28 +3,44 @@
     include "php/connection.php";
 
     if(isset($_POST['login'])){
-        $signInEmail = $_POST['signInEmail'];
-        $password = $_POST['password'];
+        $email = $_POST['signInEmail'];
+        $pass = $_POST['password'];
 
+        $sql = "SELECT email, password FROM user WHERE email='$email' AND password='$pass'";
 
-        $sql = "SELECT email, password FROM user WHERE email='$signInEmail' AND password='$password'";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
-
+            $state = 0;
             while($row = $result->fetch_assoc()){
-                if($signInEmail == $row['email'] AND $password == $row['password']){
-                    echo "<script> window.alert('Successfully Logged !'); </script>";
-                    echo "<script>window.location.href = 'homePage.php'</script>";
+                if($row['email'] == $email){
+                    if($row['password'] == $pass){
+                        $state = 1;
+                        header("Location:homePage.php");
+                        // die("<script>window.location.href='homePage.php'</script>"); 
+                    }else{
+                        $state = 0;
+                    }
                 }else{
-                    echo "<script> window.alert('Login Failed !'); </script>";
-                    echo "<script>window.location.href = 'signIn.php'</script>";
+                    $state = 0;
                 }
             }
-        }
-
-    }
-
+            if(!$state){
+                echo "<script>
+                window.onload = function(){ 
+                    alert('User not found. Try again!'); 
+                }
+                </script>";
+            }
+            } else {
+                echo "<script>
+                    window.onload = function(){ 
+                        alert('User not found. Try again!'); 
+                    }
+                </script>";
+            }
+            }
+                
     $conn->close();
 
 ?>
@@ -155,7 +171,7 @@
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
         }
-  
+    
     </style>
 
 </head>
@@ -167,10 +183,10 @@
         </div> 
         <div class="navbar"> 
           <a href="homePage.php">Home</a>
-          <a href="aboutUs.html">About Us</a>
-          <a href="packages.html">Packages</a>
-          <a href="contactUs.html">Contact</a>
-          <a href="myProfile.html">My Profile</a>
+          <a href="aboutUs.php">About Us</a>
+          <a href="packages.php">Packages</a>
+          <a href="contactUs.php">Contact</a>
+          <a href="myProfile.php">My Profile</a>
         </div>
       </header>
   
@@ -184,13 +200,14 @@
         <div>
             <h3 class="h3">Welcome Back</h3><br>
             <p class="para1">Please enter your details!</p><br><br>
+
             <form class="signInForm" method="POST">
                 <a href="homePage.php">
-                    <button type="button" class="btn" onclick="popUpBox()"><img src="Assets/google.png" class="logoIcon">&nbsp; &nbsp;  Login in with Google</button>
+                    <button type="button"  class="btn" id = 'btn1' onclick="popUpBox()"><img src="Assets/google.png" class="logoIcon">&nbsp; &nbsp;  Login in with Google</button>
                 </a>
                 <br><br>
                 <a href="homePage.php">
-                    <button type="button" class="btn" onclick="popUpBox()"><img src="Assets/apple.png" class="logoIcon">&nbsp; &nbsp;  Login in with Apple</button>
+                    <button type="button" class="btn" id='btn2' onclick="popUpBox()"><img src="Assets/apple.png" class="logoIcon">&nbsp; &nbsp;  Login in with Apple</button>
                 </a>
                               
                 <br><br><br>
@@ -223,10 +240,11 @@
                     <a href="deleteAccount.php" class="deleteAccount">Delete Your Account</a>
                 </div>
 
+                
+
             </form>
         </div>
     </div>
-    </center>
 
     <footer>
         <section class="footer-top">
@@ -257,5 +275,6 @@
     <script src="js/signIn.js">
 
     </script>
+
 </body>
 </html>

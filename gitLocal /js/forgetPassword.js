@@ -20,3 +20,21 @@ function para2Func(){
 function para3Func(){
     para3.innerHTML = "Confirm Password: ";
 }
+
+function validatePassword(){
+    var pass = document.forms['myForm']['pw'].value;
+    if(pass = ""){
+        alert("Password Empty!");
+        return false;
+    }
+}
+
+function validateForm() {
+  let email = document.forms["myForm"]["email"].value;
+
+  if (email == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+}
+

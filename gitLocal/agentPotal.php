@@ -1,10 +1,56 @@
+<?php
+    
+    include "php/connection.php";
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    if(isset($_POST['addButton'])){
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+
+        $sql = "INSERT INTO agent (name, email) VALUES ('$name', '$email')";
+
+        if ($conn->query($sql) === FALSE) {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }else{
+            echo "<script>alert('Data Inserted !')</script>";
+        }
+    }
+
+   
+  
+
+    if(isset($_POST['updateAgent'])){
+        $agentEmail = $_POST['agentEmail'];
+        $agentName = $_POST['agentName'];
+        $sql3 = "UPDATE agent SET name='$agentName' WHERE email='$agentEmail'";
+        
+        if($conn->query($sql3) === FALSE){
+            echo "<script>alert('Enter valid Email')</script>";
+        }
+    }
+
+    if(isset($_POST['deleteAgent'])){
+        $agentEmail = $_POST['mail'];
+        $sql4 = "DELETE FROM agent WHERE email='$agentEmail'";
+        if($conn->query($sql4) === FALSE){
+            echo "<script>alert('Enter valid Email')</script>";
+        }
+    }
+
+    $conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="css/agentPotal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,400&family=Rubik&display=swap" rel="stylesheet">
@@ -130,16 +176,54 @@
           <a href="aboutUs.php">About Us</a>
           <a href="packages.php">Packages</a>
           <a href="contactUs.php">Contact</a>
-          <a href="myProfile.php">My Profile</a>
+          <a href="agentPotal.php">My Profile</a>
         </div>
 
     </header>
+    <center>
+        <h1>Agent Portal</h1>
 
-    <main>
-        
+    
+        <form method="post">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="email" id="email" placeholder="Email">
+            <input type="submit" id="addButton" name="addButton" value="Add Agent">
+            <input type="submit" name="showAgent" value="showAgent"><br><br>
+            Enter Email and Name : <input type="email" name="agentEmail" placeholder="Email">
+            <input type="text" name="agentName" placeholder="Name">
+            
+            <input type="submit" name="updateAgent" value="Update Agent Name">
+            <br><br>
+            <h3 style="color:red">Delete Agent</h3>
+            Enter Email : <input type="email" name="mail" placeholder="Email">
+            <input type="submit" name="deleteAgent" value="Delete Agent">
+            <br><br>
+            <div id="agentTable"></div>
 
+            <?php
+          
+              // Create a connection to the database
+              include "php/connection.php";
 
-    </main>
+              if(isset($_POST['showAgent'])){
+                  $sql2 = "SELECT * FROM agent";
+                  $result = $conn->query($sql2);
+                  if($result->num_rows > 0){
+                  echo "<div id='agentTable'>";
+                  echo "<table border='1px'>";
+                  echo "<tr><th>Agent Name</th><th>Agent Email</th></tr>";
+                  while($row = $result->fetch_assoc()){
+                      $agentName = $row['name'];
+                      $agentEmail = $row['email'];
+                      echo "<tr><td>$agentName</td><td>$agentEmail</td></tr>";
+                  }
+                  echo "</table>";
+                  echo "</div>";
+                  }
+            }
+            ?>
+        </form>
+    </center>
 
     <footer>
 
@@ -168,5 +252,6 @@
         </div>
 
     </footer>
+    <!-- <script src="js/agentPotal.js"></script> -->
 </body>
 </html>

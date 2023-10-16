@@ -1,26 +1,5 @@
 <?php
-
-include 'connection.php';
-
-if(isset($_POST['submit'])){
-    $u_ID = $_POST['userID'];
-    $u_name=$_POST['name'];
-    $u_email=$_POST['email'];
-    $u_number=$_POST['number'];
-    $u_subject=$_POST['subject'];
-    $u_message=$_POST['message'];
-  
-    $sql1 = "INSERT INTO contact_us (userID, name, email,  number, subject, message)
-     VALUES ('$u_ID','$u_name', '$u_email', '$u_number', '$u_subject', '$u_message')";
-  
-      if($conn -> query($sql1) === TRUE){
-          echo "<script>alert('Data Inserted !');</script>";
-          echo "<script>window.location.href='homePage.php'</script>";
-      }else{
-          echo "Error";
-      }
-}
-
+include 'connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +8,7 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contactus.css">
+    <link rel="stylesheet" href="../css/contactus.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,400&family=Rubik&display=swap" rel="stylesheet">
@@ -143,8 +122,6 @@ textarea::placeholder{
 
 
 
-
-
   
   /* Footer CSS */
 
@@ -226,115 +203,74 @@ textarea::placeholder{
 
     </header>
 
-    <main>
-      
-      <div class="main">
-        <div class="heading">
-          <h1>Contact Us</h1>
-        </div>
-  
-        <div class="heading">
-          <h4>Lorem Ipsum dolor sit amet, consectetur adipiscing elit.<br>
-          Phasellus nulla libero, luctus eu lacinia non.</h4>
-  
-        <div class = "SM">
-          <h2> Send Message </h2>
-  
-        <div class = "SM">
-          Phasellus nulla libero, luctus eu lacinia non.</h4>
-        
-      </div>
-      <br><br><br>
-      <form method="POST">
-        
-        <div class="formBox2">
-          <div class="row50">
-            <div class="inputBox">
-            <input type="text" placeholder="User ID" name="userID" required>
-          </div><br><br>  
 
-            <div class="inputBox">
-              <input type="text"  placeholder="Your Name" name="name" required>
-            </div> <br><br>
-
-            <div class="inputBox">
-              <input type="email"  placeholder="Email Address" name="email" required>
-            </div> <br><br>
-          </div>
-
-          <div class="row50">
-            <div class="inputBox">
-              <input type="text" placeholder="Phone Number" name="number" required>
-            </div> <br><br>
-
-            <div class="inputBox">
-              <input type="text"  placeholder="Subject" name="subject" required>
-            </div>
-          </div>
-          <br><br>
-
-          <div class="row100">
+    <div class="dis">
+            <button class="add"><a href="contactUs.php">form</a>
+            </button> <br>
             <div class="inputBox">
               <textarea placeholder="Message" name="message"> </textarea>
             </div>
-          </div>
-          <br><br>
-          
-          <div class="row100">
-            <button type="submit" name="submit" class='btn'>Submit</button>
-          </div>
-            <br><br>
 
-          <form action="display.php" method="post">
-            <div class="show">
-                <button type="submit" name="show" class='btn' onclick="redirect()">Show My Message</button>
-            </div>
-          </form>
-        
+                  <?php
+
+                  //read message from database table
+                  $sql = "SELECT * FROM contact_us";
+                  $result = mysqli_query($con,$sql);
+
+                  if($result){
+                   while ($textarea= mysqli_fetch_assoc($result)){
+                    
+                    
+                    $u_message = $textarea['message'];
+                              echo ' 
+                              <textarea > '.$u_message.' </textarea >
+                             
+                              <div class="button">
+                                <div class= "btn1">
+                                   <a href="update.php?updateid='.$u_message.'"> Update </button></a>
+                                </div>
+                                <div class = "btn2">
+                                 <a href="delete.php?deleteid='.$u_message.'"> Delete </button></a>
+                                </div>
+                              </div>
+
+                              </div>';
+                   }   
+                  }
+
+                  ?>
+
+                  
+            
         </div>
 
-      </form>
-    
-      <script>
-        function redirect(){
-          window.location.href="displaymessage.php";
-        }
-      </script>
-      
 
+        <footer>
 
+<section class="footer-top">
+ <div class="news-container">
+  <h3>Newsletter</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur
+  adipiscing elit. Proin nisi</p>
+  <input type="email" placeholder="Your Email">
+ </div>
+ <div class="contact-container">
+  <h3>Contact Us</h3>
+  <small>+94 77 117 3677</small><br>
+  <small>info@xinsurance.com</small><br>
+  <small>Queen Towers, Colombo</small><br>
+  <small>Sri Lanka</small>
+ </div>
+</section>
+<hr class="footer-breaker">
+<div class="footer-bottom">
+  <a href="#" class="footer-logo">X Insurance</a>
+  <div class="footer-menu">
+    <a href="#">Terms of Services</a>
+    <a href="#">Privacy policy</a>
+  </div>
+</div>
 
-
-    </main>
-
-    <footer>
-
-        <section class="footer-top">
-         <div class="news-container">
-          <h3>Newsletter</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Proin nisi</p>
-          <input type="email" placeholder="Your Email">
-         </div>
-         <div class="contact-container">
-          <h3>Contact Us</h3>
-          <small>+94 77 117 3677</small><br>
-          <small>info@xinsurance.com</small><br>
-          <small>Queen Towers, Colombo</small><br>
-          <small>Sri Lanka</small>
-         </div>
-        </section>
-        <hr class="footer-breaker">
-        <div class="footer-bottom">
-          <a href="#" class="footer-logo">X Insurance</a>
-          <div class="footer-menu">
-            <a href="#">Terms of Services</a>
-            <a href="#">Privacy policy</a>
-          </div>
-        </div>
-
-    </footer>
+</footer>
 </body>
 </html>
-
-

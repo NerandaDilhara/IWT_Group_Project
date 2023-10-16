@@ -1,6 +1,6 @@
 <?php
   
-  include "php/connection.php";
+  require "php/connection.php";
 
   if(isset($_POST['submit'])){
     $fullname = $_POST['fullname'];
@@ -203,10 +203,10 @@
         </div> 
         <div class="navbar"> 
           <a href="homePage.php">Home</a>
-          <a href="aboutUs.html">About Us</a>
-          <a href="packages.html">Packages</a>
-          <a href="contactUs.html">Contact</a>
-          <a href="myProfile.html">My Profile</a>
+          <a href="aboutUs.php">About Us</a>
+          <a href="packages.php">Packages</a>
+          <a href="contactUs.php">Contact</a>
+          <a href="myProfile.php">My Profile</a>
         </div>
       </header>
   
@@ -240,7 +240,7 @@
           </div>
 
           <div class="form">
-            <form method="POST">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
               <label for="fullname">Full Name: </label><br><br>
               <input type="text" name="fullname" id="fullname" placeholder="Fullname">
@@ -255,8 +255,8 @@
               <br><br>
 
               <label for="gender">Gender : </label>&nbsp;&nbsp;
-              Male <input type="radio" name="gender" id="gender" class="radio" value="male">
-              Female <input type="radio" name="gender" id="gender" class="radio" value="female">
+              Male <input type="radio" name="gender" class="radio" value="male">
+              Female <input type="radio" name="gender" class="radio" value="female">
               <br><br>
 
               <label for="dob">Date of Birth: </label><br><br>
@@ -267,7 +267,7 @@
               <br><br>
 
               <label for="username">Username: </label> <br><br>
-              <input type="text" name="username" id="username" placeholder="Your Username">
+              <input type="text" name="username" onchange="upperCase()" id="username" placeholder="Your Username">
               <br><br>
 
               <label for="pass1">Password: </label> <br><br>

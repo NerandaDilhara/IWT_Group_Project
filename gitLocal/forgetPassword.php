@@ -1,6 +1,6 @@
 <?php
 
-    include "php/connection.php";
+    require "php/connection.php";
 
     if(isset($_POST['submit'])){
         $email = $_POST['email'];
@@ -12,35 +12,64 @@
         
         $result1 = $conn->query($sql1);
 
-        if($result1->num_rows > 0){
-            $state = 0;
-            while($row = $result1->fetch_assoc()){
-                if($email == $row['email']){
-                    if($pw == $cPw){
-                        if($conn->query($sql2) === TRUE){
-                            echo "<script>window.alert('Password Updated!');</script>";
-                            $state = 1;
-                            die("<script>window.location.href='signIn.php'</script>");
-                            break;
-                        }
-                    }else{
-                        echo "<script>window.alert('Password Not Matching!');</script>";
-                        die("<script>window.location.href='forgetPassword.php'</script>");
-                    }
+        function validatePassword($password) {
+      
+            $minLength = 8;  
+            $uppercase = preg_match('/[A-Z]/', $password); 
+            $lowercase = preg_match('/[a-z]/', $password); 
+            $number = preg_match('/[0-9]/', $password);     
+            $specialChar = preg_match('/[^A-Za-z0-9]/', $password);  
     
-                }else{
-                    $state = 0;
-                }
+            // Check if the password meets all criteria
+            if (strlen($password) < $minLength) {
+                return "Small length";
+            } elseif (!$uppercase || !$lowercase || !$number || !$specialChar) {
+                return "not matchs characters";
             }
-            if($state == 0){
-                die("<script>window.location.href='forgetPassword.php'</script>");
-            }
-        }else{
-            echo "0 results";
+
+            return "Password is valid";
         }
 
-    }
+        $passwordStatus = validatePassword($pw);
 
+        if($passwordStatus == "Small length"){
+            echo "<script>alert('Password Should at least 8 characters')</script>";
+
+        }elseif($passwordStatus == "not matchs characters"){
+            echo "<script>alert('Not matches characters')</script>";
+
+        }elseif($passwordStatus =="Password is valid"){
+
+            if($result1->num_rows > 0){
+                $state = 0;
+                while($row = $result1->fetch_assoc()){
+                    if($email == $row['email']){
+                        if($pw == $cPw){
+                            if($conn->query($sql2) === TRUE){
+                                echo "<script>window.alert('Password Updated!');</script>";
+                                $state = 1;
+                                die("<script>window.location.href='signIn.php'</script>");
+                                break;
+                            }
+                        }else{
+                            echo "<script>window.alert('Password Not Matching!');</script>";
+                            die("<script>window.location.href='forgetPassword.php'</script>");
+                        }
+        
+                    }else{
+                        $state = 0;
+                    }
+                }
+                if($state == 0){
+                    die("<script>window.location.href='forgetPassword.php'</script>");
+                }
+            }else{
+                echo "<script>alert('Not matching email!')</script>";
+
+            }
+        }
+    }
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -171,10 +200,10 @@
         </div> 
         <div class="navbar"> 
           <a href="homePage.php">Home</a>
-          <a href="aboutUs.html">About Us</a>
-          <a href="packages.html">Packages</a>
-          <a href="contactUs.html">Contact</a>
-          <a href="myProfile.html">My Profile</a>
+          <a href="aboutUs.php">About Us</a>
+          <a href="packages.php">Packages</a>
+          <a href="contactUs.php">Contact</a>
+          <a href="myProfile.php">My Profile</a>
         </div>
       </header>
 
@@ -188,20 +217,9 @@
             <p class="para1">Please enter your email address or username</p><br><br>
             
             <div class="formDiv">
-                <form class="form" method="post">
-                    <label for="email" class="label">Email or Username: <br><br></label>
+                <form class="form" method="post" class="myForm" onsubmit="return validateForm()"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <label for="email" class="label">Email : <br><br></label>
                     <input type="email" class="email" id="email" name="email">
-
-                    <br><br>
-
-                    <div class="sendOtp">
-                        <button type="button" onclick="" class="btn1">Send OTP</button>
-                    </div>
-
-                    <br><br>
-                    
-                    <label for="otp" class="label">Enter OTP: <br><br></label>
-                    <input type="text" class="otp" id="otp">
 
                     <br><br>
                     
@@ -213,7 +231,7 @@
                     <br><br>
 
                     <div class="div3">
-                        <form method="post">
+                        <form method="post" name="myForm" onsubmit="return validatePassword()">
                             <h3 id="para2"></h3>
                             <input type="password" name="pw" class="pw"> <br>
                             <h3 id="para3"></h3>
@@ -261,5 +279,6 @@
     <script src="js/forgetPassword.js">
 
     </script>
+    
 </body>
 </html>

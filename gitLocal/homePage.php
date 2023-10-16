@@ -19,10 +19,10 @@
       <nav id="nav-menu">
         <ul class="nav-bar">
           <li><a href="homePage.php">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Packages</a></li>
-          <li><a href="contactUs.html">Contact</a></li>
-          <li><a href="agentPotal.html">My Profile</a></li>
+          <li><a href="aboutUs.php">About Us</a></li>
+          <li><a href="packages.php">Packages</a></li>
+          <li><a href="contactUs.php">Contact</a></li>
+          <li><a href="agentPotal.php">My Profile</a></li>
         </ul>
       </nav>
       <div class="content-hero">

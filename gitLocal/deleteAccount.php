@@ -1,5 +1,5 @@
 <?php 
-    include "php/connection.php";
+    require "php/connection.php";
 
     if(isset($_POST['delete'])){
         $email = $_POST['email'];
@@ -14,10 +14,15 @@
             $state = 1;
             while($row = $result->fetch_assoc()){
                 if($email == $row['email'] AND $password == $row['password']){
-                    echo "<script>alert('Account Deleted Successfully !');</script>";
+
+                    echo "<script>let userConfirm = confirm('Are you want to delete?')</script>;";
+                    echo "<script>if(userConfirm){</script>";
                     $conn->query($sql1);
                     $state = 1;
                     die("<script>window.location.href='signUp.php'</script>");
+                    echo "<script>};</script>";
+                    echo "<script>alert('Account Deleted Successfully !');</script>";
+                    
                 }else{
                     $state = 0;
                 }
@@ -160,10 +165,10 @@
         </div> 
         <div class="navbar"> 
           <a href="homePage.php">Home</a>
-          <a href="aboutUs.html">About Us</a>
-          <a href="packages.html">Packages</a>
-          <a href="contactUs.html">Contact</a>
-          <a href="myProfile.html">My Profile</a>
+          <a href="aboutUs.php">About Us</a>
+          <a href="packages.php">Packages</a>
+          <a href="contactUs.php">Contact</a>
+          <a href="myProfile.php">My Profile</a>
         </div>
     </header>
     <center>
@@ -172,7 +177,7 @@
             <h1>Delete Your Account</h1>
         </div>
         <div class="deletePart">
-            <form method="POST">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <label for="email">Email: </label> <br><br>
                 <input type="email" class="email" name="email" id="email">
                 <br><br>

@@ -1,127 +1,70 @@
-*{
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Rubik', sans-serif;
-}
-
-body{
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
     background-image: url("../Assets/image2.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.topic{
-    text-align: center;
+h1 {
+    color: #333;
 }
 
-.flex-container{
-    display: flex;
+#agentForm {
+    margin-top: 20px;
 }
 
-.flex-container .first, .second{
-    flex-wrap: wrap;
-    justify-content: space-around;
-    border: 1px solid black;
-    border-radius: 24px;
-    margin: 25px;
-    padding: 20px;
-}
 
-.flex-container .first{
-    background-color: rgb(248, 222, 255);
-}
-
-.flex-container .second{
-    background-color: azure;
-}
-
-.topic{
-    font-weight: bold;
-    font-size: 26px;
-}
-
-.flex-container .first .agent{
-    flex-wrap: wrap;
-    margin: 30px;
+button {
     padding: 10px;
-    background-color: darkgray;
-    border: 1px solid black;
-    border-radius: 15px;
 }
 
-.iamge{
-    width: 45px;
-    height: 45px;
-    margin: auto;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.profile-image{
-    width:30px;
-    height:30px;
-    margin: auto;
-}
-
-.agent{
+li {
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
     display: flex;
+    justify-content: space-between;
 }
 
-.agent .iamge .description{
-    flex-wrap: wrap;
-    justify-content: space-between;
+li:hover {
+    background-color: #f0f0f0;
+}
+
+input[type="text"],[type="email"]{
+    background-color: rgb(205, 244, 244);
+    width: 250px;
+    padding: 14px;
     margin: 10px;
-    padding: 10px;
-}
-
-.agent .description{
-    margin-left: 20px;
-}
-
-.proImage{
-    width: 60px;
-    height: 60px;
-}
-
-.agentProfile{
-    display: flex;
-}
-
-.agentProfile .profile .description2{
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px;
-    padding: 20px;
-}
-
-.description2{
-    margin-left: 25px;
-}
-
-input{
-    background-color: rgb(148, 127, 127);
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 16px;
-    color: white;
-    width: 100%;
-}
-
-input::placeholder{
-    color: white;
-    text-align: center;
-}
-
-.submit{
-    background-color: rgb(185, 185, 0);
+    font-weight: bold;
+    font-size: 20px;
     color: black;
-    width: 100px;
-    height: 30px;
-    border-radius: 20px;
+    border-radius: 12px;
 }
 
-.subject{
-    height: 60px;
+
+input[type="submit"]{
+    background-color: rgb(80, 91, 91);
+    color: white;
+    font-weight: bold;
+    width: 170px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 8px;
 }
 
-.message{
-    height: 400px;
+input:hover{
+    background-color: rgb(161, 195, 195);
 }
+
+input[type="submit"]:hover{
+    background-color: black;
+    color:white;
+}
+
